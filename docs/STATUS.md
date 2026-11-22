@@ -29,6 +29,5 @@ Abnahmekriterium: Repo, AGENTS.md, parity.md, `cargo xtask ci` grün in CI; Doma
 
 ## Offene Punkte
 
-- Schriften in `website/fonts/` brauchen die OFL-Lizenztexte mit den Copyright-Zeilen der jeweiligen Schrift.
 - `ofd-ffi` verbietet aktuell `unsafe` wie alle Crates; UniFFI erzeugt `unsafe`-Code, dafür braucht die Crate im Spike eine begründete Ausnahme.
 - Testpiloten, Enroute-Team, NOTAM-Quelle, UL-Regeln und Hosting: siehe Implementierungsplan, „Offene Punkte“.

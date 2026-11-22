@@ -35,7 +35,7 @@ Regeln für Menschen und Coding-Agenten stehen in [AGENTS.md](AGENTS.md), Beitr�
 | Bibliotheken: `ofd-units`, `ofd-geo`, `ofd-navdata`, `ofd-wx`, `ofd-traffic`, `ofd-flight`, `ofd-alerts`, `xtask` | MIT oder Apache-2.0, nach Wahl ([LICENSE-MIT](LICENSE-MIT), [LICENSE-APACHE](LICENSE-APACHE)) |
 | App und alles andere: `ofd-core`, `ofd-ffi`, `ofd-cli`, iOS-App, Pipeline, Website, Dokumentation | MPL-2.0 ([LICENSE-MPL-2.0](LICENSE-MPL-2.0)) |
 
-Maßgeblich ist das Feld `license` in der jeweiligen `Cargo.toml`; `cargo xtask ci` prüft, dass es zur Tabelle passt. Die Schriften in `website/fonts/` stehen unter der SIL Open Font License. Kartendaten und Navigationsdaten unterliegen den Lizenzen ihrer Quellen.
+Maßgeblich ist das Feld `license` in der jeweiligen `Cargo.toml`; `cargo xtask ci` prüft, dass es zur Tabelle passt. Die Schriften in `website/fonts/` stehen unter der SIL Open Font License 1.1 (Lizenztexte dort). Kartendaten und Navigationsdaten unterliegen den Lizenzen ihrer Quellen.
 
 ## Haftungsausschluss
 
