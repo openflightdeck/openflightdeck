@@ -1,0 +1,21 @@
+[package]
+name = "ofd-cli"
+description = "Headless-Planer und Fixture-Läufer für OpenFlightDeck"
+license = "MPL-2.0"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+ofd-core.workspace = true
+
+[[bin]]
+name = "ofd"
+path = "src/main.rs"

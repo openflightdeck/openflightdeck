@@ -1,0 +1,18 @@
+[package]
+name = "ofd-traffic"
+description = "GDL90, FLARM-NMEA und Geräteerkennung"
+license = "MIT OR Apache-2.0"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+ofd-units.workspace = true
+ofd-geo.workspace = true

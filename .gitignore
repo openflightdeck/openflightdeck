@@ -1,0 +1,15 @@
+/target
+**/*.rs.bk
+.DS_Store
+*.swp
+.idea/
+.vscode/
+# iOS
+apps/ios/**/xcuserdata/
+apps/ios/**/DerivedData/
+*.xcframework
+# lokale Datenpakete und Geheimnisse
+*.pmtiles
+*.mbtiles
+.env
+.env.*

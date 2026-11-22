@@ -1,0 +1,5 @@
+# Fliegerisch kritische Crates brauchen immer ein Review durch einen Maintainer (AGENTS.md).
+/crates/ofd-units/   @bart
+/crates/ofd-geo/     @bart
+/crates/ofd-alerts/  @bart
+/fixtures/           @bart

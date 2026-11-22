@@ -1,0 +1,19 @@
+[package]
+name = "ofd-alerts"
+description = "Luftraum-Vorausschau, Priorisierung, Entprellung und Quittieren"
+license = "MIT OR Apache-2.0"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+ofd-units.workspace = true
+ofd-geo.workspace = true
+ofd-flight.workspace = true

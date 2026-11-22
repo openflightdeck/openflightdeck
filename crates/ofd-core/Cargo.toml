@@ -1,0 +1,23 @@
+[package]
+name = "ofd-core"
+description = "App-Zustand, Commands und Effekte von OpenFlightDeck"
+license = "MPL-2.0"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+ofd-units.workspace = true
+ofd-geo.workspace = true
+ofd-navdata.workspace = true
+ofd-wx.workspace = true
+ofd-traffic.workspace = true
+ofd-flight.workspace = true
+ofd-alerts.workspace = true

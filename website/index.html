@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="de" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenFlightDeck – das freie Cockpit fürs iPad</title>
+  <meta name="description" content="OpenFlightDeck ist ein freies Open-Source-EFB für VFR-Piloten in Deutschland: Moving Map, Luftraumwarnungen, Wetter und Verkehr auf dem iPad. Kostenlos, offline, ohne Konto und ohne Tracking.">
+  <meta name="theme-color" content="#0a1120">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav" id="top">
+  <a class="brand" href="#top" aria-label="OpenFlightDeck Startseite">
+    <svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="5"/><path d="M6 33L34 7" stroke="#d43aa8" stroke-width="3.4" stroke-linecap="round"/><circle cx="6" cy="33" r="3.6" fill="#0a1120" stroke="#d43aa8" stroke-width="2.6"/><circle cx="34" cy="7" r="3.6" fill="#0a1120" stroke="#d43aa8" stroke-width="2.6"/></svg>
+    <span>OpenFlightDeck</span>
+  </a>
+  <nav aria-label="Hauptnavigation">
+    <a href="#funktionen">Funktionen</a>
+    <a href="#bedienung">Bedienung</a>
+    <a href="#prinzipien">Prinzipien</a>
+    <a href="#technik">Technik</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#mitmachen">Mitmachen</a>
+    <!-- TODO: App-Store- bzw. TestFlight-Link eintragen -->
+    <a class="nav-cta" href="#">Laden</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="sky" aria-hidden="true">
+    <div class="sky-photo"></div>
+    <div class="sun"></div>
+    <svg class="clouds" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMid slice">
+      <g class="cloud c1"><ellipse cx="200" cy="380" rx="160" ry="34"/><ellipse cx="260" cy="356" rx="90" ry="40"/><ellipse cx="150" cy="364" rx="70" ry="28"/></g>
+      <g class="cloud c2"><ellipse cx="900" cy="300" rx="220" ry="30"/><ellipse cx="960" cy="276" rx="110" ry="38"/><ellipse cx="840" cy="286" rx="80" ry="26"/></g>
+      <g class="cloud c3"><ellipse cx="1350" cy="420" rx="180" ry="26"/><ellipse cx="1400" cy="402" rx="80" ry="30"/></g>
+      <g class="cloud c4"><ellipse cx="560" cy="470" rx="260" ry="22"/><ellipse cx="620" cy="452" rx="120" ry="26"/></g>
+    </svg>
+    <svg class="ground" viewBox="0 0 1600 300" preserveAspectRatio="none">
+      <path d="M0 120 C 200 90 380 140 560 110 S 900 70 1100 105 S 1420 95 1600 80 V300 H0Z" class="g1"/>
+      <path d="M0 170 C 260 140 420 190 700 160 S 1150 130 1600 150 V300 H0Z" class="g2"/>
+      <path d="M-20 230 C 200 200 360 250 600 225 S 1000 190 1300 215 S 1500 230 1620 210" class="river"/>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <h1 class="reveal"><span class="nw">Das freie Cockpit</span><br><span class="nw">für dein <span class="hl">iPad.</span></span></h1>
+      <p class="lead reveal">OpenFlightDeck ist ein Electronic Flight Bag für VFR-Piloten in Deutschland. Moving Map, Luftraumwarnungen, Wetter und Verkehr auf einem Bildschirm, der auch bei Turbulenz bedienbar bleibt. Kostenlos, offline, ohne Konto und ohne Tracking.</p>
+      <div class="hero-actions reveal">
+        <!-- TODO: App-Store- bzw. TestFlight-Link eintragen -->
+        <a class="btn primary" href="#">Kostenlos laden</a>
+        <a class="btn ghost" href="#funktionen">So funktioniert's</a>
+      </div>
+    </div>
+    <div class="hero-device reveal">
+      <div class="device" data-device="hero" data-state="hero"></div>
+    </div>
+  </div>
+
+  <a class="scroll-hint" href="#funktionen" aria-label="Weiter nach unten"><span></span></a>
+</section>
+
+<!-- ============ 01 FUNKTIONEN ============ -->
+<section class="features" id="funktionen">
+  <div class="section-head reveal">
+    <p class="eyebrow"><span>01</span>Funktionen</p>
+    <h2>Alles, was du im Flug brauchst.<br><span class="muted">Und nichts, was dich ablenkt.</span></h2>
+  </div>
+
+  <div class="scrolly">
+    <div class="scrolly-stage">
+      <div class="device" data-device="story" data-state="map"></div>
+      <div class="theme-chips" aria-hidden="true">
+        <span data-t="day">Tag</span><span data-t="night">Nacht</span><span data-t="cvd">Farbsehschwäche</span>
+      </div>
+    </div>
+
+    <ol class="steps">
+      <li class="step" data-state="map">
+        <h3>Moving Map, auch ohne Netz</h3>
+        <p>Eine eigene Vektorkarte im Stil der ICAO-Karte: Lufträume, Flugplätze, Gelände. Sie liegt komplett auf dem iPad und funktioniert offline. Track-up oder North-up, die Beschriftung bleibt lesbar.</p>
+      </li>
+      <li class="step" data-state="warn">
+        <h3>Luftraumwarnung mit Vorausschau</h3>
+        <p>OpenFlightDeck sieht voraus, wann du in einen Luftraum einfliegst, und sagt dir, wen du rufen musst. Das Vertikalprofil zeigt entlang deines Kurses Gelände und Luftraumgrenzen. Drei Stufen: Hinweis, Vorsicht, Warnung. Ton gibt es nur, wenn es wirklich zählt.</p>
+      </li>
+      <li class="step" data-state="whatis">
+        <h3>Tippen: „Was ist hier?“</h3>
+        <p>Ein Tipp auf die Karte zeigt immer dasselbe Blatt: Lufträume mit Grenzen, den nächsten Flugplatz, Distanz, Peilung und Flugzeit. Keine versteckten Tabs.</p>
+      </li>
+      <li class="step" data-state="plan">
+        <h3>Am Boden planen, im Flug fliegen</h3>
+        <p>Route mit dem Finger ziehen, Wegpunkte verschieben, fertig. Das Navlog rechnet Kurs, Zeit und Kraftstoff mit Wind. Im Flug sind solche Eingaben bewusst gesperrt oder brauchen eine Bestätigung.</p>
+      </li>
+      <li class="step" data-state="wx">
+        <h3>Wetter auf einen Blick</h3>
+        <p>METAR und TAF mit Flugkategorie direkt an den Flugplätzen, dazu das Regenradar des DWD als Overlay. Klar gekennzeichnet als Ergänzung, nicht als offizielles Briefing.</p>
+      </li>
+      <li class="step" data-state="traffic">
+        <h3>Verkehr in deiner Nähe</h3>
+        <p>Mit einem Empfänger wie Stratux, SkyEcho oder einem FLARM-Gerät zeigt die Karte anderen Verkehr mit relativer Höhe und Steig- oder Sinkrichtung.</p>
+      </li>
+      <li class="step" data-state="direct">
+        <h3>Direct-To und Nearest</h3>
+        <p>Ein großer Knopf, immer am selben Ort. Ein Tipp, und du siehst den nächsten Flugplatz mit Kurs und Distanz. Für die Momente, in denen es schnell gehen muss.</p>
+      </li>
+      <li class="step" data-state="themes">
+        <h3>Tag, Nacht, Farbsehschwäche</h3>
+        <p>Ein echtes Nachtdesign statt Rotfilter, damit die Augen dunkeladaptiert bleiben. Und ein Modus, der Lufträume mit Mustern statt nur mit Farben unterscheidet.</p>
+      </li>
+    </ol>
+  </div>
+
+  <p class="aside reveal">Außerdem: Flugplatzinfos mit Pisten, Frequenzen und Platzrunde, Track-Aufzeichnung mit GPX-Export, und Datenstand und Quelle sind immer sichtbar.</p>
+</section>
+
+<!-- ============ 02 BEDIENUNG ============ -->
+<section class="turb" id="bedienung">
+  <div class="turb-grid">
+    <div class="turb-copy reveal">
+      <p class="eyebrow"><span>02</span>Bedienung</p>
+      <h2>Triff mal einen Knopf bei Turbulenz.</h2>
+      <p>Normale Apps rechnen mit ruhigen Händen auf dem Sofa. Im Cockpit wackelt es. Studien zeigen: Unter Vibration dauert ein Tipp etwa doppelt so lange, und kleine Ziele werden oft verfehlt. Deshalb rechnet OpenFlightDeck mit Millimetern statt mit Pixeln.</p>
+      <dl class="tokens">
+        <div><dt>15&nbsp;mm</dt><dd>Mindestgröße für jede Schaltfläche</dd></div>
+        <div><dt>22&nbsp;mm</dt><dd>für Direct-To, Nearest und Quittieren</dd></div>
+        <div><dt>&lt;&nbsp;100&nbsp;ms</dt><dd>bis zur sichtbaren Reaktion</dd></div>
+        <div><dt>Tippen, Wischen</dt><dd>im Flug keine Schieberegler und kein Ziehen</dd></div>
+      </dl>
+    </div>
+
+    <div class="toy reveal" aria-label="Kleines Spiel: Ziele bei Turbulenz treffen">
+      <div class="toy-head">
+        <span>Probier's aus</span>
+        <button class="toggle" type="button" aria-pressed="true" id="turbToggle"><span></span>Turbulenz</button>
+      </div>
+      <div class="toy-field" id="toyField">
+        <div class="toy-shaker" id="toyShaker">
+          <div class="target-wrap">
+            <button class="target small" type="button" data-target="small">D→</button>
+            <small>Standard 44&nbsp;pt (7,7&nbsp;mm)</small>
+          </div>
+          <div class="target-wrap">
+            <button class="target big" type="button" data-target="big">D→</button>
+            <small>OpenFlightDeck 22&nbsp;mm</small>
+          </div>
+        </div>
+      </div>
+      <div class="toy-score">
+        <div><b id="hitSmall">0</b><span>Treffer klein</span></div>
+        <div><b id="hitBig">0</b><span>Treffer groß</span></div>
+        <div><b id="miss">0</b><span>daneben</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 PRINZIPIEN ============ -->
+<section class="principles" id="prinzipien">
+  <div class="section-head reveal">
+    <p class="eyebrow"><span>03</span>Prinzipien</p>
+    <h2>Frei, offline und ohne Haken.</h2>
+  </div>
+
+  <div class="cards">
+    <article class="card reveal">
+      <h3>Kostenlos und Open Source</h3>
+      <p>Nicht-kommerziell, der Code ist offen (MPL-2.0). Jeder kann nachsehen, wie Warnungen berechnet werden, und mithelfen.</p>
+    </article>
+    <article class="card reveal">
+      <h3>Kein Konto, kein Tracking</h3>
+      <p>Keine Registrierung, keine Werbung, keine Datenverwertung. Deine Flüge gehören dir.</p>
+    </article>
+    <article class="card reveal">
+      <h3>Offline im Cockpit</h3>
+      <p>Karte und Navigationsdaten liegen als geprüfte, signierte Pakete auf dem iPad. Im Flug braucht die Karte kein Netz.</p>
+    </article>
+    <article class="card reveal">
+      <h3>Datenstand immer sichtbar</h3>
+      <p>Du siehst jederzeit, wie alt die Daten sind und woher sie kommen. Veraltete Pakete meldet die App.</p>
+    </article>
+  </div>
+
+  <div class="data reveal">
+    <p><b>Offene Daten von</b> openAIP, open flightmaps, OpenStreetMap, Copernicus DEM, NOAA aviationweather und DWD Open Data. Danke an alle, die diese Daten frei bereitstellen.</p>
+  </div>
+</section>
+
+<!-- ============ 04 TECHNIK ============ -->
+<section class="tech" id="technik">
+  <div class="arch reveal">
+    <div class="arch-copy">
+      <p class="eyebrow"><span>04</span>Technik</p>
+      <h2>Ein Rust-Kern trifft alle Entscheidungen.</h2>
+      <p>Lufträume, Warnungen, Route, Wetter und Verkehr rechnet ein gemeinsamer Kern in Rust. Die iPad-App mit SwiftUI und MapLibre zeichnet nur und liest die Sensoren. So läuft später dieselbe, getestete Logik auch auf Android und im Web.</p>
+      <a class="textlink" href="https://github.com/openflightdeck">Code auf GitHub ansehen →</a>
+    </div>
+    <div class="arch-diagram" aria-hidden="true">
+      <div class="layer l-ui"><b>iPad-App</b><span>SwiftUI · MapLibre Native</span></div>
+      <div class="flow"><i></i><i></i><i></i></div>
+      <div class="layer l-bridge"><b>Brücke</b><span>UniFFI</span></div>
+      <div class="flow"><i></i><i></i><i></i></div>
+      <div class="layer l-core"><b>Rust-Kern</b>
+        <div class="crates"><span>Lufträume</span><span>Warnungen</span><span>Route &amp; Navlog</span><span>Wetter</span><span>Verkehr</span><span>Navdaten</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 ROADMAP ============ -->
+<section class="roadmap" id="roadmap">
+  <div class="section-head reveal">
+    <p class="eyebrow"><span>05</span>Roadmap</p>
+    <h2>Wie es weitergeht.</h2>
+    <p class="lead">Neue Funktionen kommen erst, wenn die vorherigen im Cockpit zuverlässig laufen.</p>
+  </div>
+
+  <ol class="phases" id="phases">
+    <li class="phase done reveal">
+      <span class="node"></span>
+      <div class="phase-meta"><span class="tag">Phase 0</span><span class="status">Erledigt</span></div>
+      <h3>Fundament</h3>
+      <p>Rust-Kern, Datenpipeline für Deutschland und geprüfte Testfälle für Lufträume.</p>
+    </li>
+    <li class="phase now reveal">
+      <span class="node"></span>
+      <div class="phase-meta"><span class="tag">Phase 1</span><span class="here">Jetzt verfügbar</span></div>
+      <h3>VFR Deutschland auf dem iPad</h3>
+      <p>Moving Map, Luftraumwarnungen mit Profil, Planung und Navlog, Wetter, Verkehr, Direct-To und Nearest.</p>
+    </li>
+    <li class="phase reveal">
+      <span class="node"></span>
+      <div class="phase-meta"><span class="tag">Phase 2</span><span class="status">Als Nächstes</span></div>
+      <h3>VFR Europa, Android, NOTAM</h3>
+      <p>Weitere Länder, eine Android-App, grafische NOTAMs, Masse und Schwerpunkt, Höhenwind und ein Web-Planer.</p>
+    </li>
+    <li class="phase reveal">
+      <span class="node"></span>
+      <div class="phase-meta"><span class="tag">Phase 3</span></div>
+      <h3>IFR</h3>
+      <p>Enroute-Karte, Verfahren und Anflugkarten, sobald die nötigen Datenlizenzen vorliegen.</p>
+    </li>
+    <li class="phase reveal">
+      <span class="node"></span>
+      <div class="phase-meta"><span class="tag">Phase 4</span></div>
+      <h3>Weltweit</h3>
+      <p>Die USA mit freien FAA-Daten als erste Region außerhalb Europas, später Synthetic Vision.</p>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ 06 MITMACHEN ============ -->
+<section class="cta" id="mitmachen">
+  <div class="cta-inner">
+    <div class="reveal">
+      <p class="eyebrow"><span>06</span>Mitmachen</p>
+      <h2>Ein Cockpit von Piloten für Piloten.</h2>
+      <p class="lead">OpenFlightDeck lebt von Leuten, die fliegen, programmieren oder sich mit Luftfahrtdaten auskennen.</p>
+    </div>
+    <div class="roles">
+      <div class="role reveal"><b>Fliegen und Feedback geben</b><span>Fehler und Wünsche direkt aus dem Cockpit melden. Jede Abweichung im Flug wird zu einem neuen Testfall.</span></div>
+      <div class="role reveal"><b>Mitentwickeln</b><span>Rust, Swift, Karten und Daten. Der Code liegt offen auf GitHub.</span></div>
+      <div class="role reveal"><b>Daten und Vereine</b><span>Länderdaten für Europa, dazu Flugschulen und Vereine, die die App einsetzen.</span></div>
+    </div>
+    <div class="cta-actions reveal">
+      <!-- TODO: App-Store- bzw. TestFlight-Link eintragen -->
+      <a class="btn primary" href="#">Kostenlos laden</a>
+      <a class="btn ghost" href="https://github.com/openflightdeck">Zu GitHub</a>
+    </div>
+  </div>
+
+  <aside class="note reveal">
+    <h3>Gut zu wissen</h3>
+    <p>OpenFlightDeck ist ein Hilfsmittel, kein Ersatz für die vorgeschriebene Flugvorbereitung, offizielle Karten und das Briefing. Wetter und andere Online-Infos gelten als ergänzend. Verantwortlich bleibt immer der Pilot.</p>
+  </aside>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <span class="brand small">
+      <svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="5"/><path d="M6 33L34 7" stroke="#d43aa8" stroke-width="3.4" stroke-linecap="round"/><circle cx="6" cy="33" r="3.6" fill="#0a1120" stroke="#d43aa8" stroke-width="2.6"/><circle cx="34" cy="7" r="3.6" fill="#0a1120" stroke="#d43aa8" stroke-width="2.6"/></svg>
+      OpenFlightDeck
+    </span>
+    <span>Ein nicht-kommerzielles Open-Source-Projekt unter MPL-2.0.</span>
+    <span class="foot-links">
+      <a href="https://github.com/openflightdeck">GitHub</a>
+      <!-- TODO: Impressum und Datenschutz verlinken -->
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+    </span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+[workspace]
+resolver = "3"
+members = ["crates/*", "xtask"]
+
+[workspace.package]
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.85"
+authors = ["The OpenFlightDeck Contributors"]
+repository = "https://github.com/openflightdeck/openflightdeck"
+homepage = "https://openflightdeck.org"
+publish = false
+
+[workspace.dependencies]
+ofd-units = { path = "crates/ofd-units" }
+ofd-geo = { path = "crates/ofd-geo" }
+ofd-navdata = { path = "crates/ofd-navdata" }
+ofd-wx = { path = "crates/ofd-wx" }
+ofd-traffic = { path = "crates/ofd-traffic" }
+ofd-flight = { path = "crates/ofd-flight" }
+ofd-alerts = { path = "crates/ofd-alerts" }
+ofd-core = { path = "crates/ofd-core" }
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[workspace.lints.clippy]
+# Kein Panic im Produktivcode (AGENTS.md). In Tests erlaubt über clippy.toml.
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"
+todo = "deny"
+unimplemented = "deny"
+indexing_slicing = "warn"
+dbg_macro = "deny"
+print_stdout = "warn"
