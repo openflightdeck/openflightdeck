@@ -1,0 +1,37 @@
+# XcodeGen-Projekt für den Spike M1. Erzeugen mit: cd apps/ios && xcodegen
+name: OFDSpike
+options:
+  bundleIdPrefix: org.openflightdeck
+  deploymentTarget:
+    iOS: "17.0"
+packages:
+  MapLibre:
+    url: https://github.com/maplibre/maplibre-gl-native-distribution
+    exactVersion: 6.31.0
+  OFDCore:
+    path: OFDCore
+targets:
+  OFDSpike:
+    type: application
+    platform: iOS
+    sources:
+      - Spike/Sources
+      - path: Spike/Resources
+        type: folder
+        buildPhase: resources
+    dependencies:
+      - package: MapLibre
+      - package: OFDCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: org.openflightdeck.spike
+        TARGETED_DEVICE_FAMILY: "2"
+        # Der Rust-Kern wird nur für arm64 gebaut (Apple-Silicon-Simulator und Gerät).
+        "EXCLUDED_ARCHS[sdk=iphonesimulator*]": x86_64
+        SWIFT_VERSION: "5.0"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        INFOPLIST_KEY_CFBundleDisplayName: OFD Spike
+        MARKETING_VERSION: "0.0.1"
+        CURRENT_PROJECT_VERSION: "1"

@@ -21,3 +21,6 @@ ofd-wx.workspace = true
 ofd-traffic.workspace = true
 ofd-flight.workspace = true
 ofd-alerts.workspace = true
+
+[dev-dependencies]
+serde_json = "1"

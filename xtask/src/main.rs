@@ -11,7 +11,9 @@ use std::env;
 use std::error::Error;
 use std::process::{Command, ExitCode};
 
-type Result<T> = std::result::Result<T, Box<dyn Error>>;
+mod ios;
+
+pub(crate) type Result<T> = std::result::Result<T, Box<dyn Error>>;
 
 const MIT_APACHE: &str = "MIT OR Apache-2.0";
 const MPL: &str = "MPL-2.0";
@@ -111,6 +113,8 @@ fn main() -> ExitCode {
         "lint" => lint(),
         "test" => test(),
         "layers" => layers(),
+        "ios" => ios::build(),
+        "spike-tiles" => ios::spike_tiles(),
         _ => {
             print_help();
             return if task.is_empty() || task == "help" {
@@ -138,7 +142,9 @@ Aufgaben:
   fmt      Code formatieren
   lint     clippy mit Warnungen als Fehler
   test     alle Tests im Workspace
-  layers   Abhängigkeiten und Lizenzen der Crates prüfen"
+  layers   Abhängigkeiten und Lizenzen der Crates prüfen
+  ios      ofd-ffi für iOS bauen: XCFramework und Swift-Bindings (nur macOS)
+  spike-tiles  synthetische PMTiles-Testkarte für den Spike erzeugen (tippecanoe)"
     );
 }
 
@@ -172,7 +178,7 @@ fn test() -> Result<()> {
     cargo(&["test", "--workspace", "--all-targets", "--locked"])
 }
 
-fn cargo(args: &[&str]) -> Result<()> {
+pub(crate) fn cargo(args: &[&str]) -> Result<()> {
     let cargo = env::var("CARGO").unwrap_or_else(|_| "cargo".to_owned());
     let status = Command::new(cargo).args(args).status()?;
     if status.success() {

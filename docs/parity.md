@@ -16,7 +16,14 @@ Jede Funktion des MVP steht hier mit einem prüfbaren Akzeptanzkriterium und ein
 | --- | --- | --- | --- | --- |
 | INFRA-001 | Schichtenprüfung | `cargo xtask layers` schlägt fehl, wenn eine Crate eine nicht erlaubte interne Crate nutzt oder nicht in `LAYERS` steht | erledigt | – |
 | INFRA-002 | Lizenztrennung | Bibliotheks-Crates (MIT/Apache-2.0) dürfen keine MPL-Crate nutzen; das `license`-Feld jeder Crate passt zu `LAYERS` | erledigt | – |
-| INFRA-003 | CI-Gate | `cargo xtask ci` läuft in GitHub Actions bei jedem Push auf `main` und jedem Pull Request | offen | – |
+| INFRA-003 | CI-Gate | `cargo xtask ci` läuft in GitHub Actions bei jedem Push auf `main` und jedem Pull Request | erledigt | – |
+
+## M1 Spike
+
+| ID | Funktion | Akzeptanzkriterium | Status | Mensch |
+| --- | --- | --- | --- | --- |
+| SPIKE-001 | Overlay aus Rust | `frameAt` plus Overlay-Update p95 unter 8 ms bei 20 Hz auf dem iPad, Tick-Rate innerhalb 5 % | in Arbeit | – |
+| SPIKE-002 | Lokale PMTiles | MapLibre Native zeigt `spike.pmtiles` aus dem App-Bundle ohne Netz | in Arbeit | – |
 
 ## M2 Einheiten und Geometrie
 

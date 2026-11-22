@@ -8,9 +8,12 @@ rust-version.workspace = true
 authors.workspace = true
 repository.workspace = true
 publish.workspace = true
+default-run = "xtask"
 
 [lints]
 workspace = true
 
 [dependencies]
 serde_json = "1"
+# Nur für das Werkzeug uniffi-bindgen (src/bin), nicht für die App.
+uniffi = { version = "0.32", features = ["cli"] }

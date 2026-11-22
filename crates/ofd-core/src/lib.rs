@@ -3,6 +3,8 @@
 //! Jede Nutzeraktion ist ein Command mit ID, Parametern und Test. SwiftUI,
 //! CLI und ein späterer MCP-Kanal rufen dieselben Commands auf.
 
+pub mod spike;
+
 /// Version des Kerns, wie sie in der App und im CLI angezeigt wird.
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");
 

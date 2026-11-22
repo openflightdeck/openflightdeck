@@ -1,0 +1,6 @@
+# Erzeugt von xcodegen bzw. cargo xtask ios / spike-tiles
+*.xcodeproj/
+OFDCore/ofd_ffiFFI.xcframework/
+OFDCore/Sources/OFDCore/ofd_ffi.swift
+Spike/Resources/spike.pmtiles
+build/
