@@ -13,3 +13,5 @@ apps/ios/**/DerivedData/
 *.mbtiles
 .env
 .env.*
+# Ergebnisse lokaler Tests
+tools/nms-test/nms-test-ergebnis.txt
