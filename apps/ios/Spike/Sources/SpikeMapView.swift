@@ -25,8 +25,7 @@ struct SpikeMapView: UIViewRepresentable {
     /// Style-JSON mit der gebündelten PMTiles-Datei. MapLibre Native erwartet
     /// die vollständige URL in der Form pmtiles://file:///pfad/datei.pmtiles.
     static func styleURL() -> URL {
-        let pmtiles = Bundle.main.url(forResource: "spike", withExtension: "pmtiles", subdirectory: "Resources")
-            ?? Bundle.main.url(forResource: "spike", withExtension: "pmtiles")
+        let pmtiles = Bundle.main.url(forResource: "spike", withExtension: "pmtiles")
         let tilesURL = "pmtiles://" + (pmtiles?.absoluteString ?? "file:///missing.pmtiles")
         let style: [String: Any] = [
             "version": 8,

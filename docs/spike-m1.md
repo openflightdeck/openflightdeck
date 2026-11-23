@@ -18,16 +18,30 @@ Abnahmekriterium laut Implementierungsplan: Das iPad zeigt eine lokale PMTiles-K
 
 ## Ergebnisse
 
+Messung am 23.11.2026 im iOS-27.0-Simulator (iPad Pro 11 Zoll, M5) auf einem Mac mit Apple Silicon, Release-Build, Track-up an, Karte bei Zoom 10. Werte sind Mittel über rund 20 s, jeweils in 2-s-Fenstern; p95 ist das schlechteste Fenster ohne den Umschaltmoment.
+
+| Rate | Tick-Rate | Jitter p95 | `frameAt` inkl. FFI Ø / p95 | Overlay-Update Ø / p95 | Karte |
+| --- | --- | --- | --- | --- | --- |
+| 10 Hz | 10,0/s | unter 0,6 ms (Ausreißer 19 ms) | 0,08 / 0,13 ms | 0,19 / 0,36 ms | 48 bis 59 fps |
+| 20 Hz | 20,0/s | unter 0,13 ms | 0,19 / 0,29 ms | 0,38 / 0,62 ms | 55 bis 59 fps |
+| 60 Hz | 60,0/s | unter 0,5 ms | 0,09 / 0,15 ms | 0,16 / 0,34 ms | 60 fps |
+
 | Messung | Umgebung | Ergebnis |
 | --- | --- | --- |
 | Kernkosten pro Frame ohne FFI (`ofd spike-bench`, Release) | Mac, Apple Silicon | Ø 0,027 ms, p99 0,05 ms, max 0,12 ms bei 8,1 KB GeoJSON |
 | App baut für Simulator und Gerät (arm64) | Xcode 27.0, iOS SDK 27.0 | ja |
-| PMTiles lädt im Bundle | iPad / Simulator | offen |
-| Tick-Rate, Jitter, FFI- und Update-Dauer bei 10, 20, 60 Hz | iPad / Simulator | offen |
-| Kartenframes pro Sekunde mit Track-up | iPad | offen |
+| PMTiles lädt aus dem App-Bundle über `pmtiles://file:///…` | Simulator | ja, ohne Netz |
+| Tick-Rate, Jitter, FFI- und Update-Dauer | Simulator | siehe Tabelle oben |
+| Dieselbe Messung auf einem echten iPad | iPad | offen |
 
-Der Kern ist mit rund 0,03 ms pro Frame um mehr als drei Größenordnungen unter dem Budget von 100 ms (10 Hz) bzw. 50 ms (20 Hz). Die eigentliche Frage ist daher, was das Kopieren des GeoJSON über die Brücke und das Neusetzen der `MLNShapeSource` in MapLibre kostet. Das lässt sich nur auf dem Gerät oder im Simulator messen.
+![Spike im Simulator bei 20 Hz](img/spike-m1-simulator.png)
 
 ## Bewertung
 
-Wird ergänzt, sobald die Messung auf dem iPad gelaufen ist. Als flüssig gilt: Tick-Rate innerhalb 5 % des Sollwerts, Jitter p95 unter 10 ms, `frameAt` plus Overlay-Update p95 unter 8 ms (halbes 60-Hz-Frame), Karte ohne sichtbares Ruckeln bei Track-up.
+Als flüssig gilt: Tick-Rate innerhalb 5 % des Sollwerts, Jitter p95 unter 10 ms, `frameAt` plus Overlay-Update p95 unter 8 ms (halbes 60-Hz-Frame), Karte ohne sichtbares Ruckeln bei Track-up.
+
+- **Frage 1 (UniFFI bei 10 bis 20 Hz):** Im Simulator klar erfüllt. Rust-Aufruf und Overlay-Update zusammen bleiben auch bei 60 Hz unter 0,5 ms p95, also mehr als eine Größenordnung unter dem Budget. Die Tick-Rate trifft den Sollwert auf 0,3 %, die Karte rendert durchgehend mit 50 bis 60 fps. Einzelne Jitter-Ausreißer (bis 19 ms) treten beim Start und beim Umschalten der Rate auf.
+- **Frage 2 (lokale PMTiles):** Erfüllt. MapLibre Native 6.31.0 lädt die gebündelte Datei über die vollständige `pmtiles://file:///…`-URL. Eine Falle beim Bündeln: Ein Ordner namens `Resources` in der Wurzel des App-Bundles macht das Bundle ungültig („Missing bundle ID“), die Datei muss flach ins Bundle.
+- **Einschränkungen:** Der Simulator nutzt die GPU und CPU des Macs; ein echtes iPad kann langsamer sein. Das Overlay-Update misst nur den Main-Thread-Anteil, das Parsen des GeoJSON in MapLibre läuft danach im Hintergrund und steckt indirekt in den fps. Die Testkarte ist synthetisch und hat keine Beschriftungen.
+
+**Ergebnis:** Die Architektur (Kern liefert pro Tick einen kompakten Zustand plus wenige KB GeoJSON, MapLibre liest die Karte direkt aus PMTiles) trägt. Für die formale Abnahme von M1 fehlt nur noch die Wiederholung auf einem echten iPad.

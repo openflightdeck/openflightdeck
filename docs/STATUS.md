@@ -14,7 +14,8 @@ Abnahmekriterium: iPad zeigt eine lokale PMTiles-Karte mit Overlay aus Rust bei 
 | `cargo xtask ios` (XCFramework, Swift Package `apps/ios/OFDCore`) | erledigt |
 | `cargo xtask spike-tiles` (synthetische PMTiles-Testkarte) | erledigt |
 | Spike-App `apps/ios` baut für Simulator und Gerät | erledigt |
-| Messung im Simulator oder auf dem iPad | offen: auf dem Mac fehlt die iOS-Simulator-Laufzeit |
+| Messung im Simulator (10, 20, 60 Hz) | erledigt, flüssig, siehe spike-m1.md |
+| Messung auf einem echten iPad | offen (Rene, braucht Apple-Developer-Konto) |
 | macOS-Job in CI für den iOS-Build | offen |
 
 ## M0 Fundament (abgeschlossen bis auf Organisatorisches)
@@ -36,7 +37,7 @@ Abnahmekriterium: Repo, AGENTS.md, parity.md, `cargo xtask ci` grün in CI; Doma
 
 ## Nächste Schritte
 
-1. Messung des Spikes im Simulator oder auf dem iPad, Ergebnis in spike-m1.md eintragen.
+1. Spike auf einem echten iPad wiederholen, Ergebnis in spike-m1.md eintragen; danach M1 abnehmen.
 2. Branch-Schutz für `main` einrichten (CI und DCO als Pflicht-Checks, Review für `ofd-units`, `ofd-geo`, `ofd-alerts` per CODEOWNERS).
 3. Parallel möglich: M2 beginnen mit `ofd-units` (Höhen, Kurse, Distanzen, Geschwindigkeiten als Typen).
 

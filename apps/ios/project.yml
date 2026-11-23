@@ -16,8 +16,9 @@ targets:
     platform: iOS
     sources:
       - Spike/Sources
+      # Als Gruppe, nicht als Ordner-Referenz: Ein Ordner „Resources“ in der
+      # Wurzel des App-Bundles macht das Bundle für iOS ungültig.
       - path: Spike/Resources
-        type: folder
         buildPhase: resources
     dependencies:
       - package: MapLibre

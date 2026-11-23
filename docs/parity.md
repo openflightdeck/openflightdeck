@@ -22,8 +22,8 @@ Jede Funktion des MVP steht hier mit einem prüfbaren Akzeptanzkriterium und ein
 
 | ID | Funktion | Akzeptanzkriterium | Status | Mensch |
 | --- | --- | --- | --- | --- |
-| SPIKE-001 | Overlay aus Rust | `frameAt` plus Overlay-Update p95 unter 8 ms bei 20 Hz auf dem iPad, Tick-Rate innerhalb 5 % | in Arbeit | – |
-| SPIKE-002 | Lokale PMTiles | MapLibre Native zeigt `spike.pmtiles` aus dem App-Bundle ohne Netz | in Arbeit | – |
+| SPIKE-001 | Overlay aus Rust | `frameAt` plus Overlay-Update p95 unter 8 ms bei 20 Hz auf dem iPad, Tick-Rate innerhalb 5 % | in Arbeit (Simulator erfüllt, iPad offen) | – |
+| SPIKE-002 | Lokale PMTiles | MapLibre Native zeigt `spike.pmtiles` aus dem App-Bundle ohne Netz | in Arbeit (Simulator erfüllt, iPad offen) | – |
 
 ## M2 Einheiten und Geometrie
 

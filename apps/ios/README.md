@@ -25,3 +25,11 @@ cd apps/ios && xcodegen && open OFDSpike.xcodeproj
 ```
 
 `cargo xtask ios` baut `ofd-ffi` für Gerät und Simulator und legt das XCFramework samt Swift-Bindings in `OFDCore/` ab. `cargo xtask spike-tiles` erzeugt eine synthetische Testkarte (Gitter und Ringe um Schönhagen, keine echten Daten) nach `Spike/Resources/spike.pmtiles`. Alle drei Ergebnisse sind nicht eingecheckt und nach Änderungen neu zu erzeugen.
+
+Ohne Apple-Developer-Konto lässt sich die App für den Simulator ad hoc signiert bauen und installieren:
+
+```bash
+xcodebuild -project apps/ios/OFDSpike.xcodeproj -scheme OFDSpike -sdk iphonesimulator -configuration Release -derivedDataPath apps/ios/build CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual build
+```
+
+Die Messwerte erscheinen in der App und alle 2 s im Log (`log stream --predicate 'subsystem == "org.openflightdeck.spike"'`).
