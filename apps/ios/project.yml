@@ -20,12 +20,15 @@ targets:
       # Wurzel des App-Bundles macht das Bundle für iOS ungültig.
       - path: Spike/Resources
         buildPhase: resources
+    configFiles:
+      Debug: Signing.xcconfig
+      Release: Signing.xcconfig
     dependencies:
       - package: MapLibre
       - package: OFDCore
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: org.openflightdeck.spike
+        PRODUCT_BUNDLE_IDENTIFIER: $(OFD_BUNDLE_ID)
         TARGETED_DEVICE_FAMILY: "2"
         # Der Rust-Kern wird nur für arm64 gebaut (Apple-Silicon-Simulator und Gerät).
         "EXCLUDED_ARCHS[sdk=iphonesimulator*]": x86_64

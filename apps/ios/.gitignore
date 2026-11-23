@@ -4,3 +4,4 @@ OFDCore/ofd_ffiFFI.xcframework/
 OFDCore/Sources/OFDCore/ofd_ffi.swift
 Spike/Resources/spike.pmtiles
 build/
+Local.xcconfig

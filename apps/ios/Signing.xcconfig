@@ -1,0 +1,7 @@
+// Signierung für Builds aufs Gerät. Team-ID und ggf. eigene Bundle-ID stehen
+// in Local.xcconfig (nicht eingecheckt), z.B.:
+//   DEVELOPMENT_TEAM = ABCDE12345
+//   OFD_BUNDLE_ID = de.example.ofdspike
+CODE_SIGN_STYLE = Automatic
+OFD_BUNDLE_ID = org.openflightdeck.spike
+#include? "Local.xcconfig"
